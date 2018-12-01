@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def heatmap(matrix, xlabels=[], ylabels=[], canvas=None, title=None, digit_size=72):
+def heatmap(matrix, xlabels=[], ylabels=[], canvas=None, title=None, digit_size=72, digits_round=4):
     ax = canvas
     if canvas is None:
         fig, ax = plt.subplots()
@@ -23,7 +23,7 @@ def heatmap(matrix, xlabels=[], ylabels=[], canvas=None, title=None, digit_size=
         for j in range(w):
             text = ax.text(
                 j, i,
-                matrix[i, j],
+                round(matrix[i, j], digits_round),
                 ha='center',
                 va='center',
                 color='w',
